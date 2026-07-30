@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0F0F1A;
+  --bg-secondary: #1A1A2E;
+  --bg-card: #1E1E36;
+  --text-primary: #F5E6C8;
+  --text-secondary: #C9A96E;
+  --accent: #8B0000;
+  --accent-light: #B22222;
+  --gold: #D4AF37;
+  --border: #2D2D44;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans SC', system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Noto Serif SC', serif;
+}
+
+/* 星空背景 */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1.5px 1.5px at 50% 10%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.15), transparent),
+    radial-gradient(1.5px 1.5px at 15% 85%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 85% 15%, rgba(255,255,255,0.25), transparent),
+    radial-gradient(1px 1px at 45% 45%, rgba(255,255,255,0.15), transparent),
+    radial-gradient(1.5px 1.5px at 60% 90%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 25% 35%, rgba(255,255,255,0.15), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 主容器 */
+.main-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* 卡片 */
+.acupoint-card {
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.acupoint-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 4px 20px rgba(201, 169, 110, 0.15);
+  transform: translateY(-2px);
+}
+
+/* 时辰表盘 */
+.clock-ring {
+  stroke: var(--gold);
+  stroke-width: 2;
+  fill: none;
+}
+
+.clock-hand {
+  stroke: var(--accent-light);
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: all 0.5s ease;
+}
+
+/* 穴位标签 */
+.point-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* 五行色 */
+.element-木 { color: #2E8B57; background: rgba(46,139,87,0.15); }
+.element-火 { color: #DC143C; background: rgba(220,20,60,0.15); }
+.element-土 { color: #DAA520; background: rgba(218,165,32,0.15); }
+.element-金 { color: #C0C0C0; background: rgba(192,192,192,0.15); }
+.element-水 { color: #4682B4; background: rgba(70,130,180,0.15); }
+
+/* 导航 */
+.nav-link {
+  position: relative;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--gold);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 60%;
+}
+
+/* 时间刻度 */
+.time-marker {
+  width: 2px;
+  height: 8px;
+  background: var(--gold);
+  opacity: 0.4;
+}
+
+/* 动画延迟 */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .main-container { padding: 0.75rem; }
+}
+
+/* 滚动条 */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
