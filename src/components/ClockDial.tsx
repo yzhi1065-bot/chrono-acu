@@ -34,8 +34,8 @@ export default function ClockDial() {
   const cx = 160, cy = 160
 
   return (
-    <div className="flex flex-col items-center gap-3 animate-fade-in">
-      <div className="relative" style={{ width: 320, height: 320 }}>
+    <div className="flex flex-col items-center gap-4 animate-fade-in">
+      <div style={{ width: 320, height: 320 }}>
         <svg viewBox="0 0 320 320" className="w-full h-full">
           {/* 外圈 — 金环 */}
           <circle cx={cx} cy={cy} r={radius + 12} className="clock-ring" opacity={0.3} />
@@ -97,16 +97,16 @@ export default function ClockDial() {
             stroke="#8B0000" strokeWidth={1} strokeLinecap="round"
           />
         </svg>
+      </div>
 
-        {/* 中心数字时钟 */}
-        <div className="absolute bottom-4 left-0 right-0 text-center">
-          <span className="font-serif text-xl text-gold">
-            {String(time.h).padStart(2, '0')}:{String(time.m).padStart(2, '0')}
-          </span>
-          <span className="ml-3 px-2 py-0.5 bg-vermilion/20 text-vermilion-light rounded text-sm font-serif">
-            {time.sc}时
-          </span>
-        </div>
+      {/* 数字时钟 — 在表盘下方，不重叠 */}
+      <div className="text-center">
+        <span className="font-serif text-2xl text-gold">
+          {String(time.h).padStart(2, '0')}:{String(time.m).padStart(2, '0')}:{String(time.s).padStart(2, '0')}
+        </span>
+        <span className="ml-3 px-3 py-1 bg-vermilion/20 text-vermilion-light rounded-lg text-base font-serif">
+          {time.sc}时
+        </span>
       </div>
     </div>
   )
