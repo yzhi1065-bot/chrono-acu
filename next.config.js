@@ -3,7 +3,7 @@ const nextConfig = {
   output: 'export',
   images: { unoptimized: true },
   basePath: '/chrono-acu',
-  assetPrefix: '/chrono-acu/',
+  trailingSlash: true,
 }
 
 module.exports = nextConfig
