@@ -41,7 +41,7 @@ export function hourToDiZhi(h: number): DiZhi {
 }
 
 /** 日干推时干 (五鼠遁) — 精确匹配 */
-const WU_SHU_DUN: Record<string, [TianGan, TianGan]> = {
+const WU_SHU_DUN: Record<string, string> = {
   '甲': '甲己', '乙': '乙庚', '丙': '丙辛', '丁': '丁壬', '戊': '戊癸',
   '己': '甲己', '庚': '乙庚', '辛': '丙辛', '壬': '丁壬', '癸': '戊癸',
 }

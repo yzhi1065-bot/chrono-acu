@@ -157,7 +157,7 @@ export function calculateNaJia(dayGan: TianGan, hour: number): NaJiaResult {
       const hz = DI_ZHI[i]
       const p = dayTable[hg]
       if (p) {
-        dailySchedule.push({ hourGan: hg as TianGan, hourZhi: hz as DiZhi, point: p })
+        dailySchedule.push({ hourGan: hg as TianGan, hourZhi: hz as DiZhi, point: { name: p.point, meridian: p.meridian, category: p.category, note: p.note } })
       }
     }
   }

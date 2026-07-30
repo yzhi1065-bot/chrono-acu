@@ -88,7 +88,7 @@ export default function HomePage() {
           icon="🐢"
           delay={200}
           points={[
-            { label: `${linggui.dayType}日 · ${linggui.divisor}宫`, value: `余${linggui.remainder}`, sub: `${linggui.gua}卦` },
+            { label: `${linggui.dayType}日 · ${linggui.divisor}宫`, value: `余${linggui.remainder}`, sub: `${linggui.point.gua}卦` },
             { label: '主穴', value: linggui.point.host, sub: linggui.point.hostMeridian, color: 'text-gold' },
             { label: '配穴', value: linggui.point.guest, sub: linggui.point.guestMeridian, color: 'text-jade' },
           ]}
