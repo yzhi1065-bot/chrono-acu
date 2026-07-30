@@ -1,5 +1,7 @@
 'use client'
 
+import AcupointBadge from './AcupointBadge'
+
 interface AcuCardProps {
   method: string
   icon: string
@@ -36,7 +38,7 @@ export default function AcuCard({ method, icon, points, className = '', delay = 
           <div key={i} className="flex items-center justify-between py-1 border-b border-ink-light/30 last:border-0">
             <span className="text-sm text-parchment/60">{p.label}</span>
             <div className="flex items-center gap-2">
-              <span className={`font-serif font-semibold ${p.color || 'text-gold'}`}>{p.value}</span>
+              <AcupointBadge name={p.value} />
               {p.sub && <span className="text-xs text-parchment/40">{p.sub}</span>}
             </div>
           </div>

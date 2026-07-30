@@ -5,116 +5,8 @@ export interface Acupoint {
   meridian: string
   category: '井' | '荥' | '输' | '经' | '合' | '原'
   element: '木' | '火' | '土' | '金' | '水'
-}
-
-/** 五输穴属性: 井木荥火输土经金合水（阳经）/ 井金荥水输木经火合土（阴经） */
-
-export const FIVE_SHU_POINTS_YANG: Record<string, Acupoint[]> = {
-  // 阳经: 井金 荥水 输木 经火 合土 原
-  胆经: [
-    { name: '足窍阴', pinyin: 'zuqiaoyin', meridian: '胆经', category: '井', element: '金' },
-    { name: '侠溪', pinyin: 'xiaxi', meridian: '胆经', category: '荥', element: '水' },
-    { name: '足临泣', pinyin: 'zulinqi', meridian: '胆经', category: '输', element: '木' },
-    { name: '阳辅', pinyin: 'yangfu', meridian: '胆经', category: '经', element: '火' },
-    { name: '阳陵泉', pinyin: 'yanglingquan', meridian: '胆经', category: '合', element: '土' },
-    { name: '丘墟', pinyin: 'qiuxu', meridian: '胆经', category: '原', element: '木' },
-  ],
-  小肠经: [
-    { name: '少泽', pinyin: 'shaoze', meridian: '小肠经', category: '井', element: '金' },
-    { name: '前谷', pinyin: 'qiangu', meridian: '小肠经', category: '荥', element: '水' },
-    { name: '后溪', pinyin: 'houxi', meridian: '小肠经', category: '输', element: '木' },
-    { name: '阳谷', pinyin: 'yanggu', meridian: '小肠经', category: '经', element: '火' },
-    { name: '小海', pinyin: 'xiaohai', meridian: '小肠经', category: '合', element: '土' },
-    { name: '腕骨', pinyin: 'wangu', meridian: '小肠经', category: '原', element: '木' },
-  ],
-  胃经: [
-    { name: '厉兑', pinyin: 'lidui', meridian: '胃经', category: '井', element: '金' },
-    { name: '内庭', pinyin: 'neiting', meridian: '胃经', category: '荥', element: '水' },
-    { name: '陷谷', pinyin: 'xiangu', meridian: '胃经', category: '输', element: '木' },
-    { name: '解溪', pinyin: 'jiexi', meridian: '胃经', category: '经', element: '火' },
-    { name: '足三里', pinyin: 'zusanli', meridian: '胃经', category: '合', element: '土' },
-    { name: '冲阳', pinyin: 'chongyang', meridian: '胃经', category: '原', element: '木' },
-  ],
-  大肠经: [
-    { name: '商阳', pinyin: 'shangyang', meridian: '大肠经', category: '井', element: '金' },
-    { name: '二间', pinyin: 'erjian', meridian: '大肠经', category: '荥', element: '水' },
-    { name: '三间', pinyin: 'sanjian', meridian: '大肠经', category: '输', element: '木' },
-    { name: '阳溪', pinyin: 'yangxi', meridian: '大肠经', category: '经', element: '火' },
-    { name: '曲池', pinyin: 'quchi', meridian: '大肠经', category: '合', element: '土' },
-    { name: '合谷', pinyin: 'hegu', meridian: '大肠经', category: '原', element: '木' },
-  ],
-  膀胱经: [
-    { name: '至阴', pinyin: 'zhiyin', meridian: '膀胱经', category: '井', element: '金' },
-    { name: '通谷', pinyin: 'tonggu', meridian: '膀胱经', category: '荥', element: '水' },
-    { name: '束骨', pinyin: 'shugu', meridian: '膀胱经', category: '输', element: '木' },
-    { name: '昆仑', pinyin: 'kunlun', meridian: '膀胱经', category: '经', element: '火' },
-    { name: '委中', pinyin: 'weizhong', meridian: '膀胱经', category: '合', element: '土' },
-    { name: '京骨', pinyin: 'jinggu', meridian: '膀胱经', category: '原', element: '木' },
-  ],
-  三焦经: [
-    { name: '关冲', pinyin: 'guanchong', meridian: '三焦经', category: '井', element: '金' },
-    { name: '液门', pinyin: 'yemen', meridian: '三焦经', category: '荥', element: '水' },
-    { name: '中渚', pinyin: 'zhongzhu', meridian: '三焦经', category: '输', element: '木' },
-    { name: '支沟', pinyin: 'zhigou', meridian: '三焦经', category: '经', element: '火' },
-    { name: '天井', pinyin: 'tianjing', meridian: '三焦经', category: '合', element: '土' },
-    { name: '阳池', pinyin: 'yangchi', meridian: '三焦经', category: '原', element: '木' },
-  ],
-}
-
-export const FIVE_SHU_POINTS_YIN: Record<string, Acupoint[]> = {
-  // 阴经: 井金 荥水 输木 经火 合土  (原=输)
-  肝经: [
-    { name: '大敦', pinyin: 'dadun', meridian: '肝经', category: '井', element: '木' },
-    { name: '行间', pinyin: 'xingjian', meridian: '肝经', category: '荥', element: '火' },
-    { name: '太冲', pinyin: 'taichong', meridian: '肝经', category: '输', element: '土' },
-    { name: '中封', pinyin: 'zhongfeng', meridian: '肝经', category: '经', element: '金' },
-    { name: '曲泉', pinyin: 'ququan', meridian: '肝经', category: '合', element: '水' },
-  ],
-  心经: [
-    { name: '少冲', pinyin: 'shaochong', meridian: '心经', category: '井', element: '木' },
-    { name: '少府', pinyin: 'shaofu', meridian: '心经', category: '荥', element: '火' },
-    { name: '神门', pinyin: 'shenmen', meridian: '心经', category: '输', element: '土' },
-    { name: '灵道', pinyin: 'lingdao', meridian: '心经', category: '经', element: '金' },
-    { name: '少海', pinyin: 'shaohai', meridian: '心经', category: '合', element: '水' },
-  ],
-  脾经: [
-    { name: '隐白', pinyin: 'yinbai', meridian: '脾经', category: '井', element: '木' },
-    { name: '大都', pinyin: 'dadou', meridian: '脾经', category: '荥', element: '火' },
-    { name: '太白', pinyin: 'taibai', meridian: '脾经', category: '输', element: '土' },
-    { name: '商丘', pinyin: 'shangqiu', meridian: '脾经', category: '经', element: '金' },
-    { name: '阴陵泉', pinyin: 'yinlingquan', meridian: '脾经', category: '合', element: '水' },
-  ],
-  肺经: [
-    { name: '少商', pinyin: 'shaoshang', meridian: '肺经', category: '井', element: '木' },
-    { name: '鱼际', pinyin: 'yuji', meridian: '肺经', category: '荥', element: '火' },
-    { name: '太渊', pinyin: 'taiyuan', meridian: '肺经', category: '输', element: '土' },
-    { name: '经渠', pinyin: 'jingqu', meridian: '肺经', category: '经', element: '金' },
-    { name: '尺泽', pinyin: 'chize', meridian: '肺经', category: '合', element: '水' },
-  ],
-  肾经: [
-    { name: '涌泉', pinyin: 'yongquan', meridian: '肾经', category: '井', element: '木' },
-    { name: '然谷', pinyin: 'rangu', meridian: '肾经', category: '荥', element: '火' },
-    { name: '太溪', pinyin: 'taixi', meridian: '肾经', category: '输', element: '土' },
-    { name: '复溜', pinyin: 'fuliu', meridian: '肾经', category: '经', element: '金' },
-    { name: '阴谷', pinyin: 'yingu', meridian: '肾经', category: '合', element: '水' },
-  ],
-  心包经: [
-    { name: '中冲', pinyin: 'zhongchong', meridian: '心包经', category: '井', element: '木' },
-    { name: '劳宫', pinyin: 'laogong', meridian: '心包经', category: '荥', element: '火' },
-    { name: '大陵', pinyin: 'daling', meridian: '心包经', category: '输', element: '土' },
-    { name: '间使', pinyin: 'jianshi', meridian: '心包经', category: '经', element: '金' },
-    { name: '曲泽', pinyin: 'quze', meridian: '心包经', category: '合', element: '水' },
-  ],
-}
-
-/** 所有五输穴扁平化 */
-export const ALL_FIVE_SHU: Acupoint[] = [
-  ...Object.values(FIVE_SHU_POINTS_YANG).flat(),
-  ...Object.values(FIVE_SHU_POINTS_YIN).flat(),
-]
-
-export function findAcupoint(name: string): Acupoint | undefined {
-  return ALL_FIVE_SHU.find(a => a.name === name)
+  location: string    // 穴位定位
+  effect: string      // 主要功效
 }
 
 /** 十二时辰当令经络 */
@@ -139,6 +31,317 @@ export function getShiChen(hour: number): string {
   return '子'
 }
 
-/** 五行生克关系 */
+/** 五行生克 */
 export const ELEMENT_GENERATING: Record<string, string> = { 木: '火', 火: '土', 土: '金', 金: '水', 水: '木' }
 export const ELEMENT_CONTROLLING: Record<string, string> = { 木: '土', 土: '水', 水: '火', 火: '金', 金: '木' }
+
+// ===================================================================
+//  穴位数据 (阳经: 井金 荥水 输木 经火 合土 原)
+// ===================================================================
+
+export const FIVE_SHU_POINTS_YANG: Record<string, Acupoint[]> = {
+  胆经: [
+    { name:'足窍阴', pinyin:'zuqiaoyin', meridian:'胆经', category:'井', element:'金',
+      location:'足第4趾外侧，趾甲角旁0.1寸',
+      effect:'偏头痛、目赤肿痛、耳聋、胁痛、足跗肿痛' },
+    { name:'侠溪', pinyin:'xiaxi', meridian:'胆经', category:'荥', element:'水',
+      location:'足背第4-5趾间，趾蹼缘后方赤白肉际',
+      effect:'头痛目眩、耳鸣耳聋、胁肋痛、热病、乳痈' },
+    { name:'足临泣', pinyin:'zulinqi', meridian:'胆经', category:'输', element:'木',
+      location:'足背第4-5跖骨间，第4跖骨后方凹陷处',
+      effect:'偏头痛、目痛、胁痛、乳痈、月经不调、足跗痛' },
+    { name:'阳辅', pinyin:'yangfu', meridian:'胆经', category:'经', element:'火',
+      location:'小腿外侧，外踝尖上4寸，腓骨前缘',
+      effect:'偏头痛、目外眦痛、胁痛、下肢外侧痛、疟疾' },
+    { name:'阳陵泉', pinyin:'yanglingquan', meridian:'胆经', category:'合', element:'土',
+      location:'小腿外侧，腓骨小头前下方凹陷处',
+      effect:'胁痛口苦、黄疸、下肢痿痹、膝肿痛、胆囊炎' },
+    { name:'丘墟', pinyin:'qiuxu', meridian:'胆经', category:'原', element:'木',
+      location:'足外踝前下方，趾长伸肌腱外侧凹陷处',
+      effect:'颈项痛、胸胁胀痛、下肢痿痹、疟疾、目赤' },
+  ],
+  小肠经: [
+    { name:'少泽', pinyin:'shaoze', meridian:'小肠经', category:'井', element:'金',
+      location:'手小指末节尺侧，指甲角旁0.1寸',
+      effect:'乳痈缺乳、头痛目翳、咽喉肿痛、热病昏迷' },
+    { name:'前谷', pinyin:'qiangu', meridian:'小肠经', category:'荥', element:'水',
+      location:'手第5掌指关节尺侧前缘，横纹头赤白肉际',
+      effect:'头痛项强、耳鸣、目痛、热病无汗、乳痈' },
+    { name:'后溪', pinyin:'houxi', meridian:'小肠经', category:'输', element:'木',
+      location:'手第5掌指关节尺侧后方，横纹头凹陷处',
+      effect:'头项强痛、腰背痛、耳聋、目赤、疟疾、癫狂' },
+    { name:'阳谷', pinyin:'yanggu', meridian:'小肠经', category:'经', element:'火',
+      location:'手腕尺侧，三角骨与尺骨茎突间凹陷处',
+      effect:'头痛目眩、耳鸣耳聋、腕痛、热病、癫狂' },
+    { name:'小海', pinyin:'xiaohai', meridian:'小肠经', category:'合', element:'土',
+      location:'肘内侧，尺骨鹰嘴与肱骨内上髁间凹陷处',
+      effect:'肘臂疼痛、头痛、耳鸣、癫狂痫证' },
+    { name:'腕骨', pinyin:'wangu', meridian:'小肠经', category:'原', element:'木',
+      location:'手腕尺侧，第5掌骨基底与三角骨间凹陷处',
+      effect:'头痛项强、指挛腕痛、黄疸、热病、消渴' },
+  ],
+  胃经: [
+    { name:'厉兑', pinyin:'lidui', meridian:'胃经', category:'井', element:'金',
+      location:'足第2趾外侧，趾甲角旁0.1寸',
+      effect:'面肿齿痛、鼻衄、咽喉肿痛、腹胀、热病癫狂' },
+    { name:'内庭', pinyin:'neiting', meridian:'胃经', category:'荥', element:'水',
+      location:'足背第2-3趾间，趾蹼缘后方赤白肉际',
+      effect:'牙痛、咽喉肿痛、口喎、腹痛腹胀、热病、足背痛' },
+    { name:'陷谷', pinyin:'xiangu', meridian:'胃经', category:'输', element:'木',
+      location:'足背第2-3跖骨间，第2跖骨前方凹陷处',
+      effect:'面目浮肿、肠鸣腹痛、热病、足背肿痛' },
+    { name:'解溪', pinyin:'jiexi', meridian:'胃经', category:'经', element:'火',
+      location:'足背踝关节横纹中央，拇长伸肌腱与趾长伸肌腱间',
+      effect:'头痛眩晕、腹胀便秘、下肢痿痹、癫狂' },
+    { name:'足三里', pinyin:'zusanli', meridian:'胃经', category:'合', element:'土',
+      location:'小腿外侧，犊鼻下3寸，胫骨前嵴外一横指',
+      effect:'胃痛呕吐、腹胀泄泻、便秘、下肢痿痹、强壮保健要穴' },
+    { name:'冲阳', pinyin:'chongyang', meridian:'胃经', category:'原', element:'木',
+      location:'足背最高处，拇长伸肌腱与趾长伸肌腱间动脉搏动处',
+      effect:'胃痛腹胀、口喎面肿、足痿无力、癫狂' },
+  ],
+  大肠经: [
+    { name:'商阳', pinyin:'shangyang', meridian:'大肠经', category:'井', element:'金',
+      location:'手食指末节桡侧，指甲角旁0.1寸',
+      effect:'咽喉肿痛、齿痛、耳鸣、热病昏迷、手指麻木' },
+    { name:'二间', pinyin:'erjian', meridian:'大肠经', category:'荥', element:'水',
+      location:'手第2掌指关节桡侧前缘，横纹头赤白肉际',
+      effect:'目昏鼻衄、齿痛口喎、咽喉肿痛、热病' },
+    { name:'三间', pinyin:'sanjian', meridian:'大肠经', category:'输', element:'木',
+      location:'手第2掌指关节桡侧后方凹陷处',
+      effect:'齿痛、咽喉肿痛、腹胀肠鸣、手背肿痛' },
+    { name:'阳溪', pinyin:'yangxi', meridian:'大肠经', category:'经', element:'火',
+      location:'腕背桡侧，拇指上翘时拇短伸肌腱与拇长伸肌腱间凹陷',
+      effect:'头痛目赤、耳聋耳鸣、齿痛、手腕痛' },
+    { name:'曲池', pinyin:'quchi', meridian:'大肠经', category:'合', element:'土',
+      location:'肘横纹外侧端，屈肘时尺泽与肱骨外上髁连线中点',
+      effect:'热病、高血压、上肢不遂、咽喉肿痛、瘾疹、腹痛' },
+    { name:'合谷', pinyin:'hegu', meridian:'大肠经', category:'原', element:'木',
+      location:'手背第1-2掌骨间，第2掌骨桡侧中点处',
+      effect:'头面五官诸疾、头痛齿痛、口眼歪斜、发热、经闭、镇痛要穴' },
+  ],
+  膀胱经: [
+    { name:'至阴', pinyin:'zhiyin', meridian:'膀胱经', category:'井', element:'金',
+      location:'足小趾末节外侧，趾甲角旁0.1寸',
+      effect:'头痛目痛、鼻塞鼻衄、胎位不正、难产' },
+    { name:'通谷', pinyin:'tonggu', meridian:'膀胱经', category:'荥', element:'水',
+      location:'足第5跖趾关节前缘，赤白肉际处',
+      effect:'头痛项强、目眩、鼻衄、癫狂' },
+    { name:'束骨', pinyin:'shugu', meridian:'膀胱经', category:'输', element:'木',
+      location:'足第5跖趾关节后方，赤白肉际处',
+      effect:'头痛项强、目眩、腰背痛、癫狂、疟疾' },
+    { name:'昆仑', pinyin:'kunlun', meridian:'膀胱经', category:'经', element:'火',
+      location:'足外踝尖与跟腱之间凹陷处',
+      effect:'头痛项强、腰骶痛、脚跟痛、难产、癫痫' },
+    { name:'委中', pinyin:'weizhong', meridian:'膀胱经', category:'合', element:'土',
+      location:'腘横纹中点，股二头肌腱与半腱肌腱之间',
+      effect:'腰背痛要穴、下肢痿痹、腹痛吐泻、小便不利、丹毒' },
+    { name:'京骨', pinyin:'jinggu', meridian:'膀胱经', category:'原', element:'木',
+      location:'足第5跖骨粗隆下方，赤白肉际处',
+      effect:'头痛项强、目翳、腰腿痛、癫痫、疟疾' },
+  ],
+  三焦经: [
+    { name:'关冲', pinyin:'guanchong', meridian:'三焦经', category:'井', element:'金',
+      location:'手无名指末节尺侧，指甲角旁0.1寸',
+      effect:'头痛目赤、咽喉肿痛、热病、中暑昏迷' },
+    { name:'液门', pinyin:'yemen', meridian:'三焦经', category:'荥', element:'水',
+      location:'手背第4-5指间，指蹼缘后方赤白肉际',
+      effect:'头痛目赤、耳聋耳鸣、咽喉肿痛、疟疾' },
+    { name:'中渚', pinyin:'zhongzhu', meridian:'三焦经', category:'输', element:'木',
+      location:'手背第4-5掌骨间，掌指关节后方凹陷处',
+      effect:'头痛目眩、耳聋耳鸣、咽喉肿痛、手指屈伸不利' },
+    { name:'支沟', pinyin:'zhigou', meridian:'三焦经', category:'经', element:'火',
+      location:'前臂背侧，腕背横纹上3寸，尺骨与桡骨之间',
+      effect:'便秘要穴、胁肋痛、耳鸣耳聋、暴喑、热病' },
+    { name:'天井', pinyin:'tianjing', meridian:'三焦经', category:'合', element:'土',
+      location:'臂外侧，屈肘时肘尖直上1寸凹陷处',
+      effect:'头痛、胁肋痛、颈项肩臂痛、瘰疬、癫痫' },
+    { name:'阳池', pinyin:'yangchi', meridian:'三焦经', category:'原', element:'木',
+      location:'腕背横纹中，指总伸肌腱尺侧凹陷处',
+      effect:'腕痛、目赤耳聋、咽喉肿痛、消渴、疟疾' },
+  ],
+}
+
+// 阴经: 井木 荥火 输土 经金 合水 (原=输)
+export const FIVE_SHU_POINTS_YIN: Record<string, Acupoint[]> = {
+  肝经: [
+    { name:'大敦', pinyin:'dadun', meridian:'肝经', category:'井', element:'木',
+      location:'足大趾末节外侧，趾甲角旁0.1寸',
+      effect:'疝气、少腹痛、遗尿、崩漏、癫痫、月经不调' },
+    { name:'行间', pinyin:'xingjian', meridian:'肝经', category:'荥', element:'火',
+      location:'足背第1-2趾间，趾蹼缘后方赤白肉际',
+      effect:'头痛目眩、目赤肿痛、胁痛、月经不调、痛经、中风' },
+    { name:'太冲', pinyin:'taichong', meridian:'肝经', category:'输', element:'土',
+      location:'足背第1-2跖骨间，跖骨结合部前方凹陷处',
+      effect:'头痛眩晕、目赤、胁痛、月经不调、小儿惊风、高血压' },
+    { name:'中封', pinyin:'zhongfeng', meridian:'肝经', category:'经', element:'金',
+      location:'足内踝前，商丘与解溪连线中点胫骨前肌腱内侧',
+      effect:'疝气、少腹痛、遗精、小便不利、足踝痛' },
+    { name:'曲泉', pinyin:'ququan', meridian:'肝经', category:'合', element:'水',
+      location:'膝内侧横纹头，半腱肌半膜肌止端前缘凹陷处',
+      effect:'少腹痛、月经不调、痛经、遗精、膝股内侧痛' },
+  ],
+  心经: [
+    { name:'少冲', pinyin:'shaochong', meridian:'心经', category:'井', element:'木',
+      location:'手小指末节桡侧，指甲角旁0.1寸',
+      effect:'心悸心痛、热病昏迷、癫狂、胸胁痛' },
+    { name:'少府', pinyin:'shaofu', meridian:'心经', category:'荥', element:'火',
+      location:'手掌第4-5掌骨间，握拳时小指尖所指处',
+      effect:'心悸胸痛、小便不利、阴痒、掌中热' },
+    { name:'神门', pinyin:'shenmen', meridian:'心经', category:'输', element:'土',
+      location:'腕掌侧横纹尺侧，尺侧腕屈肌腱桡侧凹陷处',
+      effect:'失眠健忘、心悸心痛、癫狂痫、心烦、高血压' },
+    { name:'灵道', pinyin:'lingdao', meridian:'心经', category:'经', element:'金',
+      location:'前臂掌侧，腕掌侧横纹上1.5寸，尺侧腕屈肌腱桡侧',
+      effect:'心悸心痛、暴喑、肘臂挛痛、悲恐善笑' },
+    { name:'少海', pinyin:'shaohai', meridian:'心经', category:'合', element:'水',
+      location:'肘横纹内侧端，屈肘时肱骨内上髁前凹陷处',
+      effect:'心痛、肘臂挛痛、头项痛、瘰疬、腋胁痛' },
+  ],
+  脾经: [
+    { name:'隐白', pinyin:'yinbai', meridian:'脾经', category:'井', element:'木',
+      location:'足大趾末节内侧，趾甲角旁0.1寸',
+      effect:'月经过多、崩漏、便血、腹胀、癫狂、多梦' },
+    { name:'大都', pinyin:'dadou', meridian:'脾经', category:'荥', element:'火',
+      location:'足大趾内侧，第1跖趾关节前缘赤白肉际',
+      effect:'腹胀胃痛、呕吐、泄泻、便秘、热病无汗' },
+    { name:'太白', pinyin:'taibai', meridian:'脾经', category:'输', element:'土',
+      location:'足第1跖趾关节后方赤白肉际凹陷处',
+      effect:'胃痛腹胀、泄泻便秘、体重节痛、脚气' },
+    { name:'商丘', pinyin:'shangqiu', meridian:'脾经', category:'经', element:'金',
+      location:'足内踝前下方，舟骨结节与内踝尖连线中点',
+      effect:'腹胀肠鸣、泄泻便秘、黄疸、足踝痛' },
+    { name:'阴陵泉', pinyin:'yinlingquan', meridian:'脾经', category:'合', element:'水',
+      location:'小腿内侧，胫骨内侧髁后下方凹陷处',
+      effect:'腹胀泄泻、水肿小便不利、膝痛、黄疸、带下' },
+  ],
+  肺经: [
+    { name:'少商', pinyin:'shaoshang', meridian:'肺经', category:'井', element:'木',
+      location:'手拇指末节桡侧，指甲角旁0.1寸',
+      effect:'咽喉肿痛、咳嗽鼻衄、热病昏迷、癫狂' },
+    { name:'鱼际', pinyin:'yuji', meridian:'肺经', category:'荥', element:'火',
+      location:'手第1掌骨中点桡侧，赤白肉际处',
+      effect:'咳嗽咽痛、失音、发热、掌中热' },
+    { name:'太渊', pinyin:'taiyuan', meridian:'肺经', category:'输', element:'土',
+      location:'腕掌侧横纹桡侧，桡动脉搏动处',
+      effect:'咳嗽气喘、咽喉肿痛、胸痛、无脉症、腕痛' },
+    { name:'经渠', pinyin:'jingqu', meridian:'肺经', category:'经', element:'金',
+      location:'前臂掌面桡侧，腕横纹上1寸，桡动脉外侧',
+      effect:'咳嗽气喘、胸痛、咽喉肿痛、手腕痛' },
+    { name:'尺泽', pinyin:'chize', meridian:'肺经', category:'合', element:'水',
+      location:'肘横纹中，肱二头肌腱桡侧凹陷处',
+      effect:'咳嗽气喘、胸满、肘臂挛痛、急性吐泻、小儿惊风' },
+  ],
+  肾经: [
+    { name:'涌泉', pinyin:'yongquan', meridian:'肾经', category:'井', element:'木',
+      location:'足底第2-3趾蹼缘至足跟连线前1/3凹陷处',
+      effect:'头痛眩晕、咽喉痛、失音、便秘、小便不利、小儿惊风、急救要穴' },
+    { name:'然谷', pinyin:'rangu', meridian:'肾经', category:'荥', element:'火',
+      location:'足舟骨粗隆下方，赤白肉际凹陷处',
+      effect:'月经不调、遗精、消渴、泄泻、足背痛' },
+    { name:'太溪', pinyin:'taixi', meridian:'肾经', category:'输', element:'土',
+      location:'足内踝尖与跟腱之间凹陷处',
+      effect:'腰痛耳鸣、月经不调、遗精阳痿、失眠、消渴、咽喉干痛' },
+    { name:'复溜', pinyin:'fuliu', meridian:'肾经', category:'经', element:'金',
+      location:'小腿内侧，太溪上2寸，跟腱前缘',
+      effect:'水肿腹胀、泄泻、盗汗、热病无汗、下肢痿痹' },
+    { name:'阴谷', pinyin:'yingu', meridian:'肾经', category:'合', element:'水',
+      location:'腘横纹内侧，半腱肌半膜肌肌腱之间',
+      effect:'少腹痛、月经不调、阳痿、小便不利、膝股内侧痛' },
+  ],
+  心包经: [
+    { name:'中冲', pinyin:'zhongchong', meridian:'心包经', category:'井', element:'木',
+      location:'手中指尖端中央',
+      effect:'心痛心烦、热病昏迷、中暑、小儿惊风、舌强' },
+    { name:'劳宫', pinyin:'laogong', meridian:'心包经', category:'荥', element:'火',
+      location:'手掌第2-3掌骨间，握拳时中指尖所指处',
+      effect:'心痛口疮、呕吐、癫狂痫、中暑、手心热' },
+    { name:'大陵', pinyin:'daling', meridian:'心包经', category:'输', element:'土',
+      location:'腕掌侧横纹中央，掌长肌腱与桡侧腕屈肌腱之间',
+      effect:'心痛心悸、胃痛呕吐、癫狂、腕臂痛' },
+    { name:'间使', pinyin:'jianshi', meridian:'心包经', category:'经', element:'金',
+      location:'前臂掌侧，腕横纹上3寸，掌长肌腱与桡侧腕屈肌腱间',
+      effect:'心痛心悸、胃痛呕吐、疟疾、癫狂痫、肘臂挛痛' },
+    { name:'曲泽', pinyin:'quze', meridian:'心包经', category:'合', element:'水',
+      location:'肘横纹中，肱二头肌腱尺侧凹陷处',
+      effect:'心痛心悸、胃痛呕吐、热病、肘臂挛痛' },
+  ],
+}
+
+// ===================================================================
+//  八脉交会穴
+// ===================================================================
+
+export interface BaMaiAcupoint {
+  name: string
+  pinyin: string
+  meridian: string
+  connectedMeridian: string  // 通奇经
+  location: string
+  effect: string
+  pair: string              // 配对穴位
+}
+
+export const BA_MAI_JIAO_HUI: BaMaiAcupoint[] = [
+  { name:'公孙', pinyin:'gongsun', meridian:'脾经', connectedMeridian:'冲脉',
+    location:'足第1跖骨基底前下方，赤白肉际',
+    effect:'胃痛呕吐、腹痛泄泻、消化不良、心烦失眠',
+    pair:'内关' },
+  { name:'内关', pinyin:'neiguan', meridian:'心包经', connectedMeridian:'阴维脉',
+    location:'前臂掌侧，腕横纹上2寸，掌长肌腱与桡侧腕屈肌腱间',
+    effect:'心痛心悸、胸闷、胃痛呕吐、失眠、癫痫、眩晕',
+    pair:'公孙' },
+  { name:'足临泣', pinyin:'zulinqi', meridian:'胆经', connectedMeridian:'带脉',
+    location:'足背第4-5跖骨间，第4跖骨后方凹陷处',
+    effect:'偏头痛、目痛、胁痛、乳痈、月经不调',
+    pair:'外关' },
+  { name:'外关', pinyin:'waiguan', meridian:'三焦经', connectedMeridian:'阳维脉',
+    location:'前臂背侧，腕背横纹上2寸，尺骨与桡骨之间',
+    effect:'头痛目赤、耳聋耳鸣、胁肋痛、热病、上肢痿痹',
+    pair:'足临泣' },
+  { name:'申脉', pinyin:'shenmai', meridian:'膀胱经', connectedMeridian:'阳跷脉',
+    location:'足外踝尖正下方凹陷处',
+    effect:'头痛眩晕、腰腿痛、癫狂痫、失眠、足踝痛',
+    pair:'后溪' },
+  { name:'后溪', pinyin:'houxi', meridian:'小肠经', connectedMeridian:'督脉',
+    location:'手第5掌指关节尺侧后方横纹头凹陷处',
+    effect:'头项强痛、腰背痛、耳聋、目赤、疟疾、癫狂',
+    pair:'申脉' },
+  { name:'列缺', pinyin:'lieque', meridian:'肺经', connectedMeridian:'任脉',
+    location:'前臂桡侧，腕横纹上1.5寸，拇短伸肌腱与拇长展肌腱间',
+    effect:'咳嗽气喘、咽喉肿痛、偏正头痛、口眼歪斜、手腕痛',
+    pair:'照海' },
+  { name:'照海', pinyin:'zhaohai', meridian:'肾经', connectedMeridian:'阴跷脉',
+    location:'足内踝尖正下方凹陷处',
+    effect:'咽喉干痛、失眠、月经不调、小便不利、癫痫',
+    pair:'列缺' },
+]
+
+// ===================================================================
+//  辅助函数
+// ===================================================================
+
+/** 所有五输穴扁平化 */
+export const ALL_FIVE_SHU: Acupoint[] = [
+  ...Object.values(FIVE_SHU_POINTS_YANG).flat(),
+  ...Object.values(FIVE_SHU_POINTS_YIN).flat(),
+]
+
+/** 按名称查找五输穴 */
+export function findAcupoint(name: string): Acupoint | undefined {
+  return ALL_FIVE_SHU.find(a => a.name === name)
+}
+
+/** 按名称查找八脉交会穴 */
+export function findBaMaiPoint(name: string): BaMaiAcupoint | undefined {
+  return BA_MAI_JIAO_HUI.find(a => a.name === name)
+}
+
+/** 查找任何穴位（五输穴+八脉交会穴） */
+export function findAnyAcupoint(name: string): { type: 'wushu'; data: Acupoint } | { type: 'bamai'; data: BaMaiAcupoint } | undefined {
+  const wu = findAcupoint(name)
+  if (wu) return { type: 'wushu', data: wu }
+  const ba = findBaMaiPoint(name)
+  if (ba) return { type: 'bamai', data: ba }
+  return undefined
+}
