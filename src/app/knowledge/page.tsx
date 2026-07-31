@@ -57,6 +57,19 @@ export default function KnowledgePage() {
 
       {/* 算法说明 */}
       <div className="space-y-4">
+        <a href="/chrono-acu/acupoints" className="acupoint-card block animate-slide-up group">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="text-2xl">📍</span>
+              <h3 className="font-serif text-lg text-gold">全部穴位库（74穴）</h3>
+            </div>
+            <span className="text-gold/50 group-hover:text-gold transition-colors">查看 →</span>
+          </div>
+          <p className="text-parchment/70 text-sm leading-relaxed mt-2">
+            十二经 66 个五输穴（井、荥、输、经、合、原）+ 8 个八脉交会穴，每穴含完整定位与主治功效。
+          </p>
+        </a>
+
         {METHODS.map((m, i) => (
           <div key={m.name} className="acupoint-card animate-slide-up" style={{ animationDelay: `${i * 100}ms` }}>
             <div className="flex items-center gap-2 mb-2">

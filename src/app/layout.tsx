@@ -22,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <a href="/chrono-acu" className="nav-link active text-sm sm:text-base">实时</a>
               <a href="/chrono-acu/calendar" className="nav-link text-sm sm:text-base">日历</a>
               <a href="/chrono-acu/query" className="nav-link text-sm sm:text-base">择时</a>
+              <a href="/chrono-acu/acupoints" className="nav-link text-sm sm:text-base">穴位</a>
               <a href="/chrono-acu/knowledge" className="nav-link text-sm sm:text-base">知识</a>
             </nav>
           </div>
