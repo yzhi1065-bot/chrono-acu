@@ -71,7 +71,7 @@ export function isYangZhi(zhi: DiZhi): boolean {
   return [0, 2, 4, 6, 8, 10].includes(DI_ZHI.indexOf(zhi))
 }
 
-/** 天干合化 */
+/** 天干合化 (五合) */
 export const GAN_HE: Record<string, string> = {
-  '甲乙': '土', '乙庚': '金', '丙辛': '水', '丁壬': '木', '戊癸': '火',
+  '甲己': '土', '乙庚': '金', '丙辛': '水', '丁壬': '木', '戊癸': '火',
 }

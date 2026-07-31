@@ -16,17 +16,20 @@ export const SHI_CHEN_MERIDIANS: Record<string, string> = {
   申: '膀胱经', 酉: '肾经', 戌: '心包经', 亥: '三焦经',
 }
 
-/** 时辰 → 小时范围 */
+/** 时辰 → 小时范围（半开区间 [start, end)，子时跨日） */
 export const SHI_CHEN_HOURS: Record<string, [number, number]> = {
-  子: [23, 0], 丑: [1, 2], 寅: [3, 4], 卯: [5, 6],
-  辰: [7, 8], 巳: [9, 10], 午: [11, 12], 未: [13, 14],
-  申: [15, 16], 酉: [17, 18], 戌: [19, 20], 亥: [21, 22],
+  子: [23, 1], 丑: [1, 3], 寅: [3, 5], 卯: [5, 7],
+  辰: [7, 9], 巳: [9, 11], 午: [11, 13], 未: [13, 15],
+  申: [15, 17], 酉: [17, 19], 戌: [19, 21], 亥: [21, 23],
 }
 
 export function getShiChen(hour: number): string {
   for (const [sc, [start, end]] of Object.entries(SHI_CHEN_HOURS)) {
-    if (start === 23) { if (hour >= 23 || hour < 1) return sc }
-    else if (hour >= start && hour <= end) return sc
+    if (start === 23) {
+      if (hour >= 23 || hour < 1) return sc
+    } else if (hour >= start && hour < end) {
+      return sc
+    }
   }
   return '子'
 }

@@ -173,12 +173,12 @@ describe('灵龟八法', () => {
     expect(r.point.gua).toBe('巽')
   })
 
-  // 甲申日庚午时: 甲(1)+申(9)+庚(7)+午(7)=24, 阳日÷9余6 → 申脉/后溪/乾
-  it('甲申日午时(庚午) 余6 → 申脉/后溪(乾卦)', () => {
+  // 甲申日庚午时: 甲(1)+申(9)+庚(7)+午(7)=24, 阳日÷9余6 → 公孙/内关/乾
+  it('甲申日午时(庚午) 余6 → 公孙/内关(乾卦)', () => {
     const r = calculateLingGuiBaFa('甲', '申', 12)
     expect(r.remainder).toBe(6)
-    expect(r.point.host).toBe('申脉')
-    expect(r.point.guest).toBe('后溪')
+    expect(r.point.host).toBe('公孙')
+    expect(r.point.guest).toBe('内关')
     expect(r.point.gua).toBe('乾')
   })
 

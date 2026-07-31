@@ -20,19 +20,22 @@ const ZHI_NUMBER: Record<DiZhi, number> = {
   午: 7, 未: 8, 申: 9, 酉: 10, 戌: 11, 亥: 12,
 }
 
-/** 九宫→八脉交会穴映射 */
+/** 九宫→八脉交会穴映射（《针灸大全》灵龟八法歌诀）
+ *  坎一联申脉，照海坤二五，震三属外关，巽四临泣数，
+ *  乾六是公孙，兑七后溪府，艮八系内关，离九列缺主
+ */
 const JIU_GONG_ACUPOINT: Record<number, {
   host: string; hostMeridian: string; guest: string; guestMeridian: string; gua: string; direction: string
 }> = {
-  1: { host: '公孙', hostMeridian: '脾经', guest: '内关', guestMeridian: '心包经', gua: '坎', direction: '北' },
-  2: { host: '内关', hostMeridian: '心包经', guest: '公孙', guestMeridian: '脾经', gua: '坤', direction: '西南' },
+  1: { host: '申脉', hostMeridian: '膀胱经', guest: '后溪', guestMeridian: '小肠经', gua: '坎', direction: '北' },
+  2: { host: '照海', hostMeridian: '肾经', guest: '列缺', guestMeridian: '肺经', gua: '坤', direction: '西南' },
   3: { host: '外关', hostMeridian: '三焦经', guest: '足临泣', guestMeridian: '胆经', gua: '震', direction: '东' },
   4: { host: '足临泣', hostMeridian: '胆经', guest: '外关', guestMeridian: '三焦经', gua: '巽', direction: '东南' },
-  5: { host: '后溪', hostMeridian: '小肠经', guest: '申脉', guestMeridian: '膀胱经', gua: '中', direction: '中' },
-  6: { host: '申脉', hostMeridian: '膀胱经', guest: '后溪', guestMeridian: '小肠经', gua: '乾', direction: '西北' },
-  7: { host: '照海', hostMeridian: '肾经', guest: '列缺', guestMeridian: '肺经', gua: '兑', direction: '西' },
-  8: { host: '列缺', hostMeridian: '肺经', guest: '照海', guestMeridian: '肾经', gua: '艮', direction: '东北' },
-  9: { host: '照海', hostMeridian: '肾经', guest: '列缺', guestMeridian: '肺经', gua: '离', direction: '南' },
+  5: { host: '照海', hostMeridian: '肾经', guest: '列缺', guestMeridian: '肺经', gua: '中', direction: '中' },
+  6: { host: '公孙', hostMeridian: '脾经', guest: '内关', guestMeridian: '心包经', gua: '乾', direction: '西北' },
+  7: { host: '后溪', hostMeridian: '小肠经', guest: '申脉', guestMeridian: '膀胱经', gua: '兑', direction: '西' },
+  8: { host: '内关', hostMeridian: '心包经', guest: '公孙', guestMeridian: '脾经', gua: '艮', direction: '东北' },
+  9: { host: '列缺', hostMeridian: '肺经', guest: '照海', guestMeridian: '肾经', gua: '离', direction: '南' },
 }
 
 export interface LingGuiResult {

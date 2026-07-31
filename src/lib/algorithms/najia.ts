@@ -149,15 +149,16 @@ export function calculateNaJia(dayGan: TianGan, hour: number): NaJiaResult {
   const dayTable = NAJIA_TABLE[dayGan]
   const currentOpening = dayTable?.[hourGan] ?? null
 
-  // 生成当日所有开穴计划
+  // 生成当日所有开穴计划（时支按五鼠遁反推，非从子硬编码）
   const dailySchedule: NaJiaResult['dailySchedule'] = []
   if (dayTable) {
-    for (let i = 0; i < 12; i++) {
-      const hg = TIAN_GAN[i % 10]
-      const hz = DI_ZHI[i]
+    const hourGans = Object.keys(dayTable) as TianGan[]
+    for (const hg of hourGans) {
+      // 反推: 找时支 zhi 使 getHourGan(dayGan, zhi) === hg
+      const hz = DI_ZHI.find(z => getHourGan(dayGan, z as DiZhi) === hg) as DiZhi
       const p = dayTable[hg]
       if (p) {
-        dailySchedule.push({ hourGan: hg as TianGan, hourZhi: hz as DiZhi, point: { name: p.point, meridian: p.meridian, category: p.category, note: p.note } })
+        dailySchedule.push({ hourGan: hg, hourZhi: hz, point: { name: p.point, meridian: p.meridian, category: p.category, note: p.note } })
       }
     }
   }

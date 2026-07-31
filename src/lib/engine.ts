@@ -2,7 +2,7 @@
  * 统一引擎 — 整合所有算法，提供统一接口
  */
 
-import { type TianGan, TIAN_GAN, hourToDiZhi } from './utils/ganzhi'
+import { type TianGan, type DiZhi, TIAN_GAN, DI_ZHI } from './utils/ganzhi'
 import { calculateNaZi } from './algorithms/nazi'
 import { calculateNaJia } from './algorithms/najia'
 import { calculateLingGuiBaFa } from './algorithms/lingguibafa'
@@ -25,7 +25,7 @@ function gregorianToJD(year: number, month: number, day: number): number {
 }
 
 /** 格里历 → 日干支 (天干+地支序号，0-indexed) */
-export function getDayGanZhi(year: number, month: number, day: number): { gan: TianGan; zhi: string; index: number } {
+export function getDayGanZhi(year: number, month: number, day: number): { gan: TianGan; zhi: DiZhi; index: number } {
   // 参考: 2000年1月1日 = 戊午日(sexagenary index=54)
   // 已知: 2024-02-10(甲辰年正月初一) = 甲辰日(index=40)
   const jd = gregorianToJD(year, month, day)
@@ -35,22 +35,13 @@ export function getDayGanZhi(year: number, month: number, day: number): { gan: T
   const index = ((diff + 54) % 60 + 60) % 60
   return {
     gan: TIAN_GAN[index % 10] as TianGan,
-    zhi: ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'][index % 12],
+    zhi: DI_ZHI[index % 12],
     index,
   }
 }
 
-/** 获取当前时辰的时干 */
-export function getCurrentHourGan(dayGan: TianGan, hour: number): TianGan {
-  const zhiIndex = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'].indexOf(hourToDiZhi(hour))
-  // 五鼠遁: 甲己→甲子, 乙庚→丙子, 丙辛→戊子, 丁壬→庚子, 戊癸→壬子
-  const dun: Record<string, string> = { '甲':'甲','乙':'丙','丙':'戊','丁':'庚','戊':'壬','己':'甲','庚':'丙','辛':'戊','壬':'庚','癸':'壬' }
-  const startGanIndex = TIAN_GAN.indexOf(dun[dayGan] as TianGan)
-  return TIAN_GAN[(startGanIndex + zhiIndex) % 10] as TianGan
-}
-
 export interface AllMethodsResult {
-  now: { year: number; month: number; day: number; hour: number; minute: number; shiChen: string; dayGan: TianGan; dayZhi: string }
+  now: { year: number; month: number; day: number; hour: number; minute: number; shiChen: string; dayGan: TianGan; dayZhi: DiZhi }
   nazi: ReturnType<typeof calculateNaZi>
   najia: ReturnType<typeof calculateNaJia>
   linggui: ReturnType<typeof calculateLingGuiBaFa>
@@ -67,7 +58,7 @@ export function calculateAll(year: number, month: number, day: number, hour: num
     now: { year, month, day, hour, minute, shiChen, dayGan, dayZhi },
     nazi: calculateNaZi(hour),
     najia: calculateNaJia(dayGan, hour),
-    linggui: calculateLingGuiBaFa(dayGan, dayZhi as any, hour),
+    linggui: calculateLingGuiBaFa(dayGan, dayZhi, hour),
     feiteng: calculateFeiTengBaFa(dayGan, hour),
     yangzi: calculateYangZi(dayGan, hour),
   }
