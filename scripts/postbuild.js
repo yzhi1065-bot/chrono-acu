@@ -54,5 +54,9 @@ if (fs.existsSync(docsDir)) {
   fs.rmSync(docsDir, { recursive: true })
 }
 fs.cpSync(outDir, docsDir, { recursive: true })
+
+// 4. 强制写入 .nojekyll — 防止 GitHub Pages Jekyll 忽略 _ 开头文件(_buildManifest.js/_ssgManifest.js)
+fs.writeFileSync(path.join(docsDir, '.nojekyll'), '')
+console.log('Created docs/.nojekyll')
 console.log('Copied out/ → docs/')
 console.log('Done!')
